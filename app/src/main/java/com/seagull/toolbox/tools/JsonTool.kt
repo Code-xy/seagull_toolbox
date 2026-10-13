@@ -1,5 +1,6 @@
 package com.seagull.toolbox.tools
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.MaterialTheme
@@ -64,11 +65,9 @@ fun JsonTool() {
             minLines = 6, maxLines = 14
         )
         Gap(6)
-        Row {
+        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
             Chip("格式化 2", indent == 2) { apply(2) }
-            Gap4()
             Chip("格式化 4", indent == 4) { apply(4) }
-            Gap4()
             Chip("压缩", indent == 0) { apply(0) }
         }
         ActionRow(
@@ -94,5 +93,3 @@ fun JsonTool() {
     }
 }
 
-@Composable
-private fun Gap4() = androidx.compose.foundation.layout.Spacer(Modifier.size(8.dp))

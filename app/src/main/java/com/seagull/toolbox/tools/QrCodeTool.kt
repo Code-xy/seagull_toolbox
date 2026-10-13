@@ -4,8 +4,10 @@ import android.graphics.Bitmap
 import android.graphics.Color as AColor
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -82,11 +84,9 @@ fun QrCodeTool() {
         )
 
         SectionTitle("内容类型")
-        androidx.compose.foundation.layout.Row {
+        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
             Chip("文本", mode == 0) { mode = 0; bmp = null }
-            Gap2()
             Chip("网址", mode == 1) { mode = 1; bmp = null }
-            Gap2()
             Chip("WiFi", mode == 2) { mode = 2; bmp = null }
         }
         Gap(8)
@@ -146,5 +146,3 @@ fun QrCodeTool() {
     }
 }
 
-@Composable
-private fun Gap2() = androidx.compose.foundation.layout.Spacer(Modifier.size(8.dp))

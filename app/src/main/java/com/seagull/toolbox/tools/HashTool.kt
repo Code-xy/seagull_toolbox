@@ -1,6 +1,8 @@
 package com.seagull.toolbox.tools
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -8,6 +10,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.seagull.toolbox.core.bytesToHex
 import com.seagull.toolbox.ui.ActionRow
@@ -50,11 +53,8 @@ fun HashTool() {
     Column {
         ToolInput(src, { src = it }, placeholder = "输入要计算哈希的文本…", minLines = 4, maxLines = 10)
         Gap(6)
-        androidx.compose.foundation.layout.Row {
-            ALGOS.forEach {
-                Chip(it, algo == it) { algo = it; compute() }
-                androidx.compose.foundation.layout.Spacer(androidx.compose.ui.Modifier.padding(4.dp))
-            }
+        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            ALGOS.forEach { Chip(it, algo == it) { algo = it; compute() } }
         }
         ActionRow(
             "计算" to { compute() },
