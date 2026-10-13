@@ -1,0 +1,2 @@
+-keep class com.seagull.toolbox.** { *; }
+-dontwarn org.jetbrains.annotations.**
